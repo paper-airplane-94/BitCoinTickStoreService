@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcoinstoreservice.mapper.MarketMapper">
+    <resultMap id="MarketMap" type="Market">
+        <result property="marketId" column="MARKET_ID"/>
+        <result property="koreaName" column="KOR_NAME"/>
+        <result property="englishName" column="ENG_NAME"/>
+        <result property="warning" column="WARN_CODE"/>
+    </resultMap>
+
+    <select id="selectMarketList" resultMap="MarketMap">
+        SELECT
+        MARKET_ID AS MARKET_ID,
+        KOR_NAME AS KOR_NAME,
+        ENG_NAME AS ENG_NAME,
+        WARN_CODE AS WARN_CODE
+        FROM TN_CM_BITCOIN_MARKET
+    </select>
+
+    <update id="insertMarketList" parameterType="java.util.List">
+        MERGE INTO TN_CM_BITCOIN_MARKET MKT
+        USING (
+        <foreach collection="list" item="item" separator="UNION">
+            SELECT
+            #{item.marketId} AS MARKET_ID,
+            #{item.koreaName} AS KOR_NAME,
+            #{item.englishName} AS ENG_NAME,
+            #{item.warning} AS WARN_CODE
+            FROM DUAL
+        </foreach>
+        ) T
+        ON ( MKT.MARKET_ID = T.MARKET_ID )
+        WHEN MATCHED THEN
+        UPDATE
+        SET
+        KOR_NAME = T.KOR_NAME,
+        ENG_NAME = T.ENG_NAME,
+        WARN_CODE = T.WARN_CODE,
+        UPDATE_DATE = SYSDATE
+        WHEN NOT MATCHED THEN
+        INSERT ( MARKET_ID, KOR_NAME, ENG_NAME, WARN_CODE, UPDATE_DATE )
+        VALUES ( T.MARKET_ID, T.KOR_NAME, T.ENG_NAME, T.WARN_CODE, SYSDATE )
+    </update>
+</mapper>

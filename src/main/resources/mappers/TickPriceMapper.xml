@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bitcoinstoreservice.mapper.TickPriceMapper">
+
+    <insert id="insertPriceTick" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="INSERT ALL " separator=" "
+                 close="SELECT * FROM DUAL">
+            INTO TH_CM_TICK_PRICE
+            ( INSRT_DATE, MARKET_ID, TRADE_DATE, TRADE_TIME, TRADE_DATE_KST, TRADE_TIME_KST, TRADE_TIMESTAMP,
+            OPEN_PRICE, HIGH_PRICE,
+            LOW_PRICE, TRADE_PRICE, PREV_CLOSE_PRIVE, CHANGE_CODE, CHANGE_PRICE, CHANGE_RATE, SIGN_CHANGE_PRICE,
+            SIGN_CHANGE_RATE, TRADE_VOLUME, ACC_TRADE_PRICE, ACC_TRADE_PRICE_24H, ACC_TRADE_VOLUME,
+            ACC_TRADE_VOLUME_24H,
+            HIGHEST_52WK_PRICE, HIGHEST_52WK_DATE, LOWEST_52WK_PRICE, LOWEST_52WK_DATE, TIMESTAMP )
+            VALUES
+            ( SYSTIMESTAMP, #{item.marketId}, #{item.tradeDate}, #{item.tradeTime}, #{item.tradeDateKst},
+            #{item.tradeTimeKst}, #{item.tradeTimeStamp}, #{item.openingPrice},
+            #{item.highPrice}, #{item.lowPrice}, #{item.tradePrice}, #{item.prevClosingPrice}, #{item.change},
+            #{item.changePrice}, #{item.changeRate},
+            #{item.signedChangePrice}, #{item.signedChangeRate}, #{item.tradeVolume}, #{item.accTradePrice},
+            #{item.accTradePrice24h},
+            #{item.accTradeVolume}, #{item.accTradeVolume24h}, #{item.highest52WeekPrice}, #{item.highest52WeekDate},
+            #{item.lowest52WeekPrice},
+            #{item.lowest52WeekDate}, #{item.timestamp})
+        </foreach>
+    </insert>
+</mapper>

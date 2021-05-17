@@ -20,11 +20,15 @@ public class MarketStoreService {
     }
 
     public void updateMarketInformation(boolean isDetail){
-        List<Market> markets = getMarketInformation(true);
+        List<Market> markets = getMarketInformationFromAPI(true);
         marketMapper.insertMarketList(markets);
     }
 
-    public List<Market> getMarketInformation(boolean isDetail){
-        return marketClient.getMarketList(isDetail);
+    public List<Market> getMarketInformationFromAPI(boolean isDetail){
+        return marketClient.getMarketListFromAPI(isDetail);
+    }
+
+    public List<Market> getMarketInformationFromAPI(){
+        return marketMapper.selectMarketList();
     }
 }

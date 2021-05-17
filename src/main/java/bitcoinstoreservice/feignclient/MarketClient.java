@@ -10,5 +10,5 @@ import java.util.List;
 @FeignClient(name = "market-client", url = "https://api.upbit.com/v1/market/all")
 public interface MarketClient {
     @GetMapping(produces = "application/json")
-    public List<Market> getMarketList(@RequestParam("isDetails") boolean isDetail);
+    public List<Market> getMarketListFromAPI(@RequestParam("isDetails") boolean isDetail);
 }

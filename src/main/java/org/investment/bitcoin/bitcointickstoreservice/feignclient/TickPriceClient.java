@@ -1,6 +1,6 @@
-package bitcoinstoreservice.feignclient;
+package org.investment.bitcoin.bitcointickstoreservice.feignclient;
 
-import bitcoinstoreservice.domain.TickPrice;
+import org.investment.bitcoin.bitcointickstoreservice.domain.TickPrice;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

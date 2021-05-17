@@ -1,6 +1,6 @@
-package bitcoinstoreservice.mapper;
+package org.investment.bitcoin.bitcointickstoreservice.mapper;
 
-import bitcoinstoreservice.domain.TickPrice;
+import org.investment.bitcoin.bitcointickstoreservice.domain.TickPrice;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

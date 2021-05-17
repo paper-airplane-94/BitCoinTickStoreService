@@ -1,6 +1,6 @@
-package bitcoinstoreservice.scheduler;
+package org.investment.bitcoin.bitcointickstoreservice.scheduler;
 
-import bitcoinstoreservice.service.MarketStoreService;
+import org.investment.bitcoin.bitcointickstoreservice.service.MarketStoreService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;

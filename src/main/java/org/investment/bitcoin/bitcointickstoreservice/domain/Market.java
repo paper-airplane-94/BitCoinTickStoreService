@@ -1,4 +1,4 @@
-package bitcoinstoreservice.domain;
+package org.investment.bitcoin.bitcointickstoreservice.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,8 +1,8 @@
-package bitcoinstoreservice.service;
+package org.investment.bitcoin.bitcointickstoreservice.service;
 
-import bitcoinstoreservice.domain.Market;
-import bitcoinstoreservice.feignclient.MarketClient;
-import bitcoinstoreservice.mapper.MarketMapper;
+import org.investment.bitcoin.bitcointickstoreservice.domain.Market;
+import org.investment.bitcoin.bitcointickstoreservice.feignclient.MarketClient;
+import org.investment.bitcoin.bitcointickstoreservice.mapper.MarketMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

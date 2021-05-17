@@ -1,4 +1,4 @@
-package bitcoinstoreservice;
+package org.investment.bitcoin.bitcointickstoreservice;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

@@ -1,8 +1,8 @@
-package bitcoinstoreservice.service;
+package org.investment.bitcoin.bitcointickstoreservice.service;
 
-import bitcoinstoreservice.domain.TickPrice;
-import bitcoinstoreservice.feignclient.TickPriceClient;
-import bitcoinstoreservice.mapper.TickPriceMapper;
+import org.investment.bitcoin.bitcointickstoreservice.domain.TickPrice;
+import org.investment.bitcoin.bitcointickstoreservice.feignclient.TickPriceClient;
+import org.investment.bitcoin.bitcointickstoreservice.mapper.TickPriceMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
-package bitcoinstoreservice.scheduler;
+package org.investment.bitcoin.bitcointickstoreservice.scheduler;
 
-import bitcoinstoreservice.domain.Market;
-import bitcoinstoreservice.service.MarketStoreService;
-import bitcoinstoreservice.service.TickPriceStoreService;
+import org.investment.bitcoin.bitcointickstoreservice.domain.Market;
+import org.investment.bitcoin.bitcointickstoreservice.service.MarketStoreService;
+import org.investment.bitcoin.bitcointickstoreservice.service.TickPriceStoreService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class PriceTickStoreScheduler {
     private TickPriceStoreService tickPriceStoreService;
-    private MarketStoreService  marketStoreService;
+    private MarketStoreService marketStoreService;
 
     @Autowired
     public PriceTickStoreScheduler(TickPriceStoreService tickPriceStoreService, MarketStoreService marketStoreService) {
